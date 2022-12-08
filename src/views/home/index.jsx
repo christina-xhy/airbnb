@@ -1,9 +1,10 @@
 
 import React, { memo, useEffect, useState } from 'react'
 import TNRequest from '@/services'
+import { HomeWrapper } from './style'
+import HomeBanner from './c-cpns/home-banner'
 
-const Home = memo((props) => {
-  const [highScore,setHighScore] = useState({})
+const Home = memo((props) => {const [highScore,setHighScore] = useState({})
   //发送网络请求的代码
   useEffect(()=>{
     TNRequest.get({url:"/home/highscore"}).then(res => {
@@ -12,7 +13,9 @@ const Home = memo((props) => {
     })
   },[])
   return (
-    <div>
+    <HomeWrapper>
+      <HomeBanner/>
+       <div>
       <h2>{highScore.title}</h2>
       <h4>{highScore.subtitle}</h4>
       <ul>
@@ -21,9 +24,10 @@ const Home = memo((props) => {
             return <li key={item.id}>{item.name}</li>
           })
         }
-      </ul>  
-      
+      </ul>   
     </div>
+    </HomeWrapper>
+   
   )
 })
 
