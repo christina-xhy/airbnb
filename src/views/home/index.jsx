@@ -34,6 +34,8 @@ const Home = memo(()=>{
           </ul>
         </div>
       </div>
+
+     
     </HomeWrapper>
   )
 })
