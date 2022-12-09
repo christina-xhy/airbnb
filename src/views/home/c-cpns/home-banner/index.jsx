@@ -7,7 +7,6 @@ const HomeBanner
   return (
     <BannerWrapper>
       <div>HomeBanner</div>
-
     </BannerWrapper>
   )
 })

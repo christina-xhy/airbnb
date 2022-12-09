@@ -45,10 +45,10 @@ export const RightWrapper = styled.div`
 
   .panel {
     position: absolute;
-    top: 54px;
+    top: 62px;
     right: 0;
-    width: 240px;
-    border-radius: 10px;
+    width: 200px;
+    border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     .top,
