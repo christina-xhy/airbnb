@@ -8,31 +8,41 @@ import { HomeWrapper } from './style'
 import HomeBanner from './c-cpns/home-banner'
 
 import { fetchHomeDataAction } from '@/store/modules/home'
-import SectionHeader from '@/components/section-header'
-import SectionRooms from '@/components/section-rooms'
+import HomeSectionV1 from './c-cpns/home-section-v1'
 
 
-const Home = memo(()=>{
-    //派发异步的事件；发送网络请求
+const Home = memo(()=>{  
+
+
+  //派发异步的事件；发送网络请求
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchHomeDataAction()) // 调用redux的网络请求的数据。
   },[dispatch])
-    
+
+
   //  从redux中获取数据
-  const {goodPriceInfo} = useSelector((state)=>({
-    goodPriceInfo:state.home.goodPriceInfo
+  const {goodPriceInfo,highScoreInfo} = useSelector((state)=>({
+    goodPriceInfo:state.home.goodPriceInfo,
+    highScoreInfo:state.home.highScoreInfo
   }),shallowEqual)
+debugger;
+
 
   return (
     <HomeWrapper>
       <HomeBanner/>
       <div className='content'>
-        <div className='good-price'>
-          <SectionHeader title= {goodPriceInfo.title}/> {/* 父传子通信 */}
-          <h2>{goodPriceInfo?.title}</h2>
-          <SectionRooms roomList ={goodPriceInfo?.list}/>
-        </div>
+        {
+          // !!Object.keys(goodPriceInfo).length &&
+          <HomeSectionV1 infoData = {goodPriceInfo}/>
+        }
+        
+        {
+          //  !!Object.keys(highScoreInfo).length &&
+           <HomeSectionV1 infoData = {highScoreInfo}/>
+        }
+        
       </div>
     
     </HomeWrapper>
