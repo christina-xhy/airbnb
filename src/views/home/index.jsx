@@ -1,10 +1,15 @@
 import React, { memo, useEffect, useState } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+// import { Button, Space } from 'antd';
+
+
+
 import { HomeWrapper } from './style'
 import HomeBanner from './c-cpns/home-banner'
-import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+
 import { fetchHomeDataAction } from '@/store/modules/home'
 import SectionHeader from '@/components/section-header'
-import RoomItem from '@/components/room-item'
+import SectionRooms from '@/components/section-rooms'
 
 
 const Home = memo(()=>{
@@ -26,17 +31,10 @@ const Home = memo(()=>{
         <div className='good-price'>
           <SectionHeader title= {goodPriceInfo.title}/> {/* 父传子通信 */}
           <h2>{goodPriceInfo?.title}</h2>
-          <ul className='room-list'>
-            {
-              goodPriceInfo?.list?.slice(0,8)?.map(item => {
-                return <RoomItem itemDate = {item} key={item.id}/>
-              })
-            }
-          </ul>
+          <SectionRooms roomList ={goodPriceInfo?.list}/>
         </div>
       </div>
-
-     
+    
     </HomeWrapper>
   )
 })

@@ -14,6 +14,7 @@ module.exports = {
       "@": resolve("src"),
       components: resolve("src/components"),
       utils: resolve("src/utils"),
+      // "@mui/styled-engine": "@mui/styled-engine-sc", //需要配置一下config
       //assets: resolve("src/assets "),
     },
   },

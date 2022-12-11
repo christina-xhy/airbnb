@@ -5,7 +5,7 @@ import footerData from "@/assets/data/footer.json"
 const AppFooter
  = memo((props) => {
   return (
-   <FooterWrapper>s
+   <FooterWrapper>
       <div className='wrapper'>
         <div className='service'>
           {

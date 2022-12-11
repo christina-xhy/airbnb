@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import App from "@/App";
 import "normalize.css"; //自动修改默认格式
 import "@/assets/css/index.less"; //配置less
+import "antd/dist/reset.css"; //配置antd 集成组件
 import store from "./store"; //configure配置store后在这里导入需要配合 provider 在此处使用/
 import theme from "./assets/theme";
 const root = ReactDOM.createRoot(document.getElementById("root"));

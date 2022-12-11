@@ -16,6 +16,7 @@ export const RightWrapper = styled.div`
     align-items: center;
     margin-right: 30px;
     .btn {
+      box-sizing: content-box;
       height: 18px;
       line-height: 18px;
       padding: 12px 15px;
