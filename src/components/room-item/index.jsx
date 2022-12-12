@@ -4,9 +4,14 @@ import { ItemWrapper } from './style'
 import Rating from '@mui/material/Rating';
 
 const RoomItem = memo((props) => {
-  const {itemDate} = props
+  //把Item设置为动态的数值。如果不传数据则设置一个默认值为25%
+  const {itemDate,itemWidth = "25%" } = props
   return (
-    <ItemWrapper verifyColor ={itemDate?.verify_info?.text_color || "#39576a"} >
+    <ItemWrapper verifyColor ={itemDate?.verify_info?.text_color || "#39576a"}
+    itemWidth = {itemWidth}
+    >
+      {/* 动态传入数据设置itemWidth，需要进入section-rooms 搭配设置 */}
+
       <div className='inner'>
         <div className='cover'>
           <img src={itemDate.picture_url} alt='' /> 

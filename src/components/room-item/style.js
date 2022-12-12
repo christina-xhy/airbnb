@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
   box-sizing: border-box;
-  width: 25%;
-  padding: 8px;
+  width: ${(props) => props.itemWidth};
+  padding: 8px; //section-rooms 搭配设置负margin-8px
 
   .inner {
     width: 100%;

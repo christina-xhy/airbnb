@@ -1,4 +1,8 @@
-import { getHomeGoodPriceData, getHomeHighScoreData } from "@/services";
+import {
+  getHomeDiscountData,
+  getHomeGoodPriceData,
+  getHomeHighScoreData,
+} from "@/services";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 //发送异步请求,并且导出export /getHomeGoodPriceData 是拼接好URL路由的一个函数
@@ -14,6 +18,9 @@ export const fetchHomeDataAction = createAsyncThunk(
     getHomeHighScoreData().then((res) => {
       dispatch(changeHighScoreAction(res));
     });
+    getHomeDiscountData().then((res) => {
+      dispatch(changeDiscountInfoAction(res));
+    });
   }
 );
 
@@ -22,6 +29,7 @@ const homeSlice = createSlice({
   initialState: {
     goodPriceInfo: {},
     highScoreInfo: {},
+    discountInfo: {},
   },
 
   reducers: {
@@ -30,6 +38,9 @@ const homeSlice = createSlice({
     },
     changeHighScoreAction(state, { payload }) {
       state.highScoreInfo = payload;
+    },
+    changeDiscountInfoAction(state, { payload }) {
+      state.discountInfo = payload;
     },
   },
 
@@ -40,7 +51,10 @@ const homeSlice = createSlice({
   },
 });
 
-export const { changeGoodPriceInfoAction, changeHighScoreAction } =
-  homeSlice.actions;
+export const {
+  changeGoodPriceInfoAction,
+  changeHighScoreAction,
+  changeDiscountInfoAction,
+} = homeSlice.actions;
 
 export default homeSlice.reducer;
