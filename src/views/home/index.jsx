@@ -19,10 +19,11 @@ const Home = memo(()=>{
 
 
   //  从redux中获取数据
-  const {goodPriceInfo,highScoreInfo,discountInfo} = useSelector((state)=>({
+  const {goodPriceInfo,highScoreInfo,discountInfo,recommendInfo} = useSelector((state)=>({
     goodPriceInfo:state.home.goodPriceInfo,
     highScoreInfo:state.home.highScoreInfo,
-    discountInfo: state.home.discountInfo
+    discountInfo: state.home.discountInfo,
+    recommendInfo:state.home.recommendInfo,
   }),shallowEqual)
 
   return (
@@ -32,6 +33,9 @@ const Home = memo(()=>{
 
         { isEmptyO(discountInfo) && <HomeSectionV2 infoData = {discountInfo}/>}
               {/* 设置初始化值 */}
+
+        {isEmptyO(recommendInfo) && <HomeSectionV2 infoData = {recommendInfo}/>}
+
         {
           // !!Object.keys(goodPriceInfo).length &&
           <HomeSectionV1 infoData = {goodPriceInfo}/>
@@ -41,7 +45,7 @@ const Home = memo(()=>{
           //  !!Object.keys(highScoreInfo).length &&
            <HomeSectionV1 infoData = {highScoreInfo}/>
         }
-        
+       
 
       </div>
     
