@@ -8,9 +8,9 @@ import SectionHeader from '@/components/section-header'
 import SectionRooms from '@/components/section-rooms'
 
 const HomeSectionV2 = memo((props) => {
-  const {infoData} = props
-
-   const [name,setName] = useState("佛山")//父子一、定义name数据
+   const {infoData} = props//需要定义结构一下infoData
+   const initialName = Object.keys(infoData.dest_list)[0]
+   const [name,setName] = useState(initialName)//父子一、定义name数据
 //组件 tab name ------ section-tabs 设置 数据的转换,map映射数据为字符串 ?
    const tabNames = infoData.dest_address?.map(item => item.name)
 

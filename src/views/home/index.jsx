@@ -7,6 +7,7 @@ import HomeBanner from './c-cpns/home-banner'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import HomeSectionV1 from './c-cpns/home-section-v1'
 import HomeSectionV2 from './c-cpns/home-section-v2'
+import { isEmptyO } from '@/utils'
 
 
 const Home = memo(()=>{  
@@ -29,13 +30,13 @@ const Home = memo(()=>{
       <HomeBanner/>
       <div className='content'>
 
-        {<HomeSectionV2 infoData = {discountInfo}/>}
-    
+        { isEmptyO(discountInfo) && <HomeSectionV2 infoData = {discountInfo}/>}
+              {/* 设置初始化值 */}
         {
           // !!Object.keys(goodPriceInfo).length &&
           <HomeSectionV1 infoData = {goodPriceInfo}/>
         }
-        
+
         {
           //  !!Object.keys(highScoreInfo).length &&
            <HomeSectionV1 infoData = {highScoreInfo}/>
