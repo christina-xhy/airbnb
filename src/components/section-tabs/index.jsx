@@ -19,8 +19,9 @@ const SectionTabs= memo((props) => {
    <TabsWrapper>
         {tabNames.map ((item,index)=>{
           return (
-            //tab的封装，需要安装classnames 库动态生成一些class属性
+            //tab的封装，需要安装classnames 库动态生成一些class属性// active:index === currentIndex是设置绑定选中的item的index 做展示
             <div key ={index} className={classNames('item',{active:index === currentIndex})}onClick ={ e => itemClickHandle(index,item)}> 
+              
               {item}
             </div>
           )

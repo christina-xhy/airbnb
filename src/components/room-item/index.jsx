@@ -24,7 +24,9 @@ const RoomItem = memo((props) => {
             <div className='name'>{itemDate.name}</div>
             <div className='price'>¥{itemDate.price}/晚</div>
         <div className='bottom'>
-        {/* 如果是0 则显示0.用？？ 来表示/｜｜ 是undefined的时候设置 */}
+          
+        {/* 1.如果是0 则显示0.用？？ 来表示/ 2. 当值为undefined的时候 用 ｜｜ 设置  */}
+        {/* Rating 是采用的material design集成设置的样式/也可以用ant design 集成*/}
             <Rating name="read-only" defaultValue={itemDate.star_rating ?? 5} precision={0.5} readOnly
                sx={{fontSize:"8px",color:"#00848A" ,marginRight: "-1px"}} />
                <span className='count'>
