@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const TabsWrapper = styled.div`
-  display: flex;
   .item {
     box-sizing: border-box;
+    flex-basis: 120px;
+    flex-shrink: 0;
     padding: 10px 14px;
     margin-right: 16px;
     border-radius: 10px;
@@ -15,6 +16,7 @@ export const TabsWrapper = styled.div`
     ${(props) => props.theme.mixin.boxShadow}
   }
   & :last-child {
+    margin-right: 0;
   }
   .active {
     color: #fff;

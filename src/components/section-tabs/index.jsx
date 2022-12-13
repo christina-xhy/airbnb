@@ -1,4 +1,5 @@
 
+import ScrollView from '@/base-ui/scroll-view'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { memo,useState } from 'react'
@@ -17,15 +18,18 @@ const SectionTabs= memo((props) => {
   }
   return (
    <TabsWrapper>
-        {tabNames.map ((item,index)=>{
-          return (
-            //tab的封装，需要安装classnames 库动态生成一些class属性// active:index === currentIndex是设置绑定选中的item的index 做展示
-            <div key ={index} className={classNames('item',{active:index === currentIndex})}onClick ={ e => itemClickHandle(index,item)}> 
-              
-              {item}
-            </div>
-          )
-        })}
+     <ScrollView>
+      {tabNames.map ((item,index)=>{
+            return (
+              //tab的封装，需要安装classnames 库动态生成一些class属性// active:index === currentIndex是设置绑定选中的item的index 做展示
+              <div key ={index} className={classNames('item',{active:index === currentIndex})}onClick ={ e => itemClickHandle(index,item)}> 
+                
+                {item}
+              </div>
+            )
+          })
+      }
+     </ScrollView>
    </TabsWrapper>
   )
 })

@@ -6,5 +6,5 @@ export const BannerWrapper = styled.div`
   background: url(${coverImag}) center/cover; //设置居中和图片大小
   /* background: url(${require("@/assets/img/cover_01.jpeg")}) center/cover; */
   //需要require进行包裹，是一个js代码 则需要加上$. */
-  // 如果是最早期webpack 5点几以上， 因为返回了一个对象，使用加上.default寻找到路径
+  // 如果是最早期webpack 5点几以上， 因为返回了一个对象，使用需要在末尾出url(&{coverImag})加上.default寻找到路径
 `;
