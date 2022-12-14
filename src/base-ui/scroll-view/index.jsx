@@ -45,7 +45,8 @@ const ScrollView = memo((props) => {
     <div className='scroll'>
       <div className='scroll-content' ref={scrollContentRef}>
         {/* 使用ref设置dom来获取元素 */}
-      {props.children}
+      {props.children} 
+      {/* props.children 展示tab的内容，并且作为父组件使用*/}
       </div>
     </div>
    

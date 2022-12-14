@@ -19,13 +19,13 @@ const HomeSectionV2 = memo((props) => {
 
    const tabClickHandle = useCallback(function(index,name){
     setName(name)
-  },[])//父子三
+  },[])//父子三重新设置获取的name元素。并且在home-index.js展示这个组件同时传入需要的数据
 
   return (
     <SectionV2Wrapper>
         <SectionHeader title = {infoData.title} subtitle={infoData.subtitle}/>
           <SectionTabs tabNames = { tabNames} tabClick= {tabClickHandle}/>
-          {/* 父子二 父子间通信，子传父。tabClick（函数）实现通信 -- section-tabs。index.jsx*/}
+          {/* 父子二 父子间通信，子传父。tabClick（函数）实现通信 --component组件中调用section-tabs --index.jsx*/}
           <SectionRooms roomList = {infoData.dest_list?.[name]} itemWidth ="33.33333%"/>
           <SectionFooter name = {name}/>
     </SectionV2Wrapper>

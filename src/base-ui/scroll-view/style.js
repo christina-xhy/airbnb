@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ViewWrapper = styled.div`
-  position: relative; //设置相对定位，才能获取item本身的位置/不是body的位置
+  position: relative; //设置相对定位，才能获取item本身的位置/不是body的位置。父组件相对
   padding: 8px 0;
   .scroll {
     overflow: auto;
@@ -11,7 +11,7 @@ export const ViewWrapper = styled.div`
     }
   }
   .control {
-    position: absolute;
+    position: absolute; //子组件绝对定位
     z-index: 9;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ export const ViewWrapper = styled.div`
     }
 
     &.right {
-      right: -15px;
+      right: -5px;
       top: 50%;
       transform: translate(50%, -50%);
     }

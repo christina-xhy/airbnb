@@ -23,13 +23,13 @@ const SectionTabs= memo((props) => {
             return (
               //tab的封装，需要安装classnames 库动态生成一些class属性// active:index === currentIndex是设置绑定选中的item的index 做展示
               <div key ={index} className={classNames('item',{active:index === currentIndex})}onClick ={ e => itemClickHandle(index,item)}> 
-                
                 {item}
               </div>
             )
           })
       }
      </ScrollView>
+     {/* 使用ScrollView插槽 搭配scroll-view组件设置左右滑动 */}
    </TabsWrapper>
   )
 })

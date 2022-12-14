@@ -22,3 +22,9 @@ export function getHomeHotRecommendData() {
     url: "/home/hotrecommenddest",
   });
 }
+
+export function getHomeLongforDate() {
+  return TNRequest.get({
+    url: "/home/longfor",
+  });
+}

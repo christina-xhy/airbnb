@@ -3,11 +3,12 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 // import { Button, Space } from 'antd';
 
 import { HomeWrapper } from './style'
-import HomeBanner from './c-cpns/home-banner'
+import { isEmptyO } from '@/utils'
 import { fetchHomeDataAction } from '@/store/modules/home'
+import HomeBanner from './c-cpns/home-banner'
 import HomeSectionV1 from './c-cpns/home-section-v1'
 import HomeSectionV2 from './c-cpns/home-section-v2'
-import { isEmptyO } from '@/utils'
+import HomeLongfor from './c-cpns/home-longfor'
 
 
 const Home = memo(()=>{  
@@ -19,13 +20,14 @@ const Home = memo(()=>{
 
 
   //  从redux中获取数据
-  const {goodPriceInfo,highScoreInfo,discountInfo,recommendInfo} = useSelector((state)=>({
+  const {goodPriceInfo,highScoreInfo,discountInfo,recommendInfo,longforInfo} = useSelector((state)=>({
     goodPriceInfo:state.home.goodPriceInfo,
     highScoreInfo:state.home.highScoreInfo,
     discountInfo: state.home.discountInfo,
     recommendInfo:state.home.recommendInfo,
+    longforInfo:state.home.longforInfo,
   }),shallowEqual)
-
+debugger;
   return (
     <HomeWrapper>
       <HomeBanner/>
@@ -35,6 +37,11 @@ const Home = memo(()=>{
               {/* 设置初始化值 */}
 
         {isEmptyO(recommendInfo) && <HomeSectionV2 infoData = {recommendInfo}/>}
+
+
+        {isEmptyO(longforInfo) && <HomeLongfor infoData = {longforInfo}/>}
+
+
 
         {
           // !!Object.keys(goodPriceInfo).length &&
