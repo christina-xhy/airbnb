@@ -11,6 +11,7 @@ const SectionTabs= memo((props) => {
 
   const{tabNames = [],tabClick } = props 
   const [currentIndex,setCurrentIndex] = useState(0)
+  tabNames.push('ab','bc','cd','de')
 
   function itemClickHandle(index,name){
     setCurrentIndex(index)

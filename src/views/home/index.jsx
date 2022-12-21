@@ -33,12 +33,14 @@ debugger;
       <HomeBanner/>
       <div className='content'>
 
+
         { isEmptyO(discountInfo) && <HomeSectionV2 infoData = {discountInfo}/>}
               {/* 设置初始化值 */}
 
         {isEmptyO(recommendInfo) && <HomeSectionV2 infoData = {recommendInfo}/>}
 
 
+        
         {isEmptyO(longforInfo) && <HomeLongfor infoData = {longforInfo}/>}
 
 

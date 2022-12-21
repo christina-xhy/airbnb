@@ -10,7 +10,7 @@ const ScrollView = memo((props) => {
   const [posIndex,setPosIndex] = useState(0)//A 记录每次选中的item的index=0的元素
   const totalDistanceRef= useRef()//1.用ref scroll边框位置获取这个元素
   //组件渲染完毕，判断是否显示右侧的按钮
-  const scrollContentRef = useRef()
+  const scrollContentRef = useRef()//先用useRef（）这个hook包裹一组件渲染后，依旧保持当前的值,优化防止多次渲染
   useEffect(()=>{
     const scrollWidth = scrollContentRef.current.scrollWidth //可滚动的宽度
     const clientWidth = scrollContentRef.current.clientWidth //当前文档占的宽度
@@ -24,8 +24,7 @@ const ScrollView = memo((props) => {
     const newEl = scrollContentRef.current.children[newIndex] // 通过newIndex获取新的元素
     const newOffsetLeft = newEl.offsetLeft//设置这个元素距离最左边边框offset的距离
     scrollContentRef.current.style.transform = `translate(-${newOffsetLeft}px)`//设置滚动的距离
-    setPosIndex(newIndex)
-    //是否继续显示左和右侧按钮
+    setPosIndex(newIndex)//记录更新选择元素的id
     setShowRight(totalDistanceRef.current > newOffsetLeft)//3.用最新的distance做比较
     setShowLeft(newOffsetLeft > 0 ) // 都是用newOffLeft做比较
   }

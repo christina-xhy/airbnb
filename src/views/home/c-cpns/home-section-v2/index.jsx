@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+
 import { useCallback,useState} from 'react'
 import React, { memo } from 'react'
 import { SectionV2Wrapper } from './style'
@@ -32,6 +32,6 @@ const HomeSectionV2 = memo((props) => {
   )
 })
 
-HomeSectionV2.propTypes = {}
+
 
 export default HomeSectionV2
