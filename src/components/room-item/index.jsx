@@ -15,6 +15,7 @@ const RoomItem = memo((props) => {
       <div className='inner'>
         <div className='cover'>
           <img src={itemDate.picture_url} alt='' /> 
+         
           {/* img直接展示图片 */}
         </div>
         <div className='desc'>

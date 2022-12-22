@@ -28,3 +28,9 @@ export function getHomeLongforDate() {
     url: "/home/longfor",
   });
 }
+
+export function getHomePlusDate() {
+  return TNRequest.get({
+    url: "/home/plus",
+  });
+}

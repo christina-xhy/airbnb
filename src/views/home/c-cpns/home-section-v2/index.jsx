@@ -19,7 +19,7 @@ const HomeSectionV2 = memo((props) => {
 
    const tabClickHandle = useCallback(function(index,name){
     setName(name)
-  },[])//父子三重新设置获取的name元素。并且在home-index.js展示这个组件同时传入需要的数据
+  },[])//父子三  重新设置获取的name元素。并且在home-index.js展示这个组件同时传入需要的数据
 
   return (
     <SectionV2Wrapper>
