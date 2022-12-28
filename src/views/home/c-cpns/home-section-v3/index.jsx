@@ -4,7 +4,6 @@ import { SectionV3Wrapper } from './style'
 import SectionHeader from '@/components/section-header'
 // import RoomItem from '@/components/room-item'
 import ScrollView from '@/base-ui/scroll-view'
-import SectionRooms from '@/components/section-rooms'
 import RoomItem from '@/components/room-item'
 import SectionFooter from '@/components/section-footer'
 const HomeSectionV3 = memo((props) => {
@@ -13,23 +12,19 @@ const HomeSectionV3 = memo((props) => {
     <SectionV3Wrapper>
      
         <SectionHeader title = {infoData.title} subtitle = {infoData.subtitle}/>
-        <div className='room-list'>
-          {/* <ScrollView> */}
-            <div className='item'>
-            <SectionRooms  roomList = {infoData?.list} itemWidth = "25%"/>
-            <SectionFooter name = 'plus'/>
-
+        <div className='room-list'> 
+            <ScrollView>
+              {
+                infoData.list.map(item => {
+                  return <RoomItem itemData = {item } itemWidth = "20%" key = {item.id}/>
+                })
+              }
+            </ScrollView>
             </div>
-           
-            
-          {/* {
-            infoData.list.map(item => {
-              return <RoomItem itemData = {item } itemWidth = "20%" key = {item.id}/>
-            })
-          } */}
-           
-          {/* </ScrollView> */}
-        </div>
+          
+        <SectionFooter/>
+
+        
 
     </SectionV3Wrapper>
   )

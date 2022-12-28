@@ -10,7 +10,7 @@ const SectionRooms= memo((props) => {
       {/* 加工roomList数据 ，加工itemWidth数据*/}
     {
       roomList?.slice(0,8)?.map(item => {
-        return <RoomItem itemDate = {item} itemWidth = {itemWidth} key={item.id}/>
+        return <RoomItem itemData = {item} itemWidth = {itemWidth} key={item.id}/>
       })
     }
     {/* 总共展示8条数据 itemwidth */}
