@@ -20,7 +20,7 @@ const EntireRooms = memo(() => {
       {  
         roomList.map(item =>{
           return (
-           <RoomItem itemData = {item} itemWidth = "20%" key ={item.id}></RoomItem>
+           <RoomItem itemData = {item} itemWidth = "20%" key ={item._id}></RoomItem>
           )
         })
       }
