@@ -25,7 +25,48 @@ const RoomItem = memo((props) => {
     setSelectIndex(newIndex)
 
   }
-  
+  const pictureElement = (
+    <div className='cover'> 
+    <img src={itemData.picture_url} alt='' />  
+    </div>
+  )
+  const sliderElement = (
+    <div className='slider'>
+    <div className='control'>
+      <div className='btn left' onClick = {e => controlClickHandle(false)}>
+        <IconArrowLeft width = '25' height ='25'/>
+      </div>
+      <div className='btn right' onClick = {e => controlClickHandle(true)}>
+        <IconArrowRight width = '25' height = '25'/>
+      </div>
+    </div>
+    <div className='indicator'>
+      <Indicator selectIndex = {selectIndex}>
+        {
+         itemData.picture_urls?.map((item,index)=>{
+            return(
+              <div className='item' key={item}>
+                <span className={classNames("dot",{active: selectIndex === index })} ></span>
+              </div>
+            )
+         })
+        }
+      </Indicator>
+    </div>
+    <Carousel dots = {false} ref ={sliderRef}>
+      {
+        itemData?.picture_urls?.map(item =>{
+          return(
+            <div className='cover' key={item}> 
+              <img src={item} alt=''/>
+            </div>
+          )
+        })
+      }
+    </Carousel>
+  </div>
+  )
+
   return (
     <ItemWrapper verifyColor ={itemData?.verify_info?.text_color || "#39576a"}
     itemWidth = {itemWidth}
@@ -33,46 +74,7 @@ const RoomItem = memo((props) => {
       {/* 动态传入数据设置itemWidth，需要进入section-rooms 搭配设置 */}
 
       <div className='inner'>
-          {/* <div className='cover'> */}
-          {/* <img src={itemData.picture_url} alt='' />  */}
-          {/* img直接展示图片 */}
-          <div className='slider'>
-            <div className='control'>
-              <div className='btn left' onClick = {e => controlClickHandle(false)}>
-                <IconArrowLeft width = '25' height ='25'/>
-              </div>
-              <div className='btn right' onClick = {e => controlClickHandle(true)}>
-                <IconArrowRight width = '25' height = '25'/>
-              </div>
-            </div>
-            <div className='indicator'>
-              <Indicator selectIndex = {selectIndex}>
-                {
-                 itemData.picture_urls?.map((item,index)=>{
-                    return(
-                      <div className='item' key={item}>
-                        <span className={classNames("dot",{active: selectIndex === index })} ></span>
-                      </div>
-                    )
-                 })
-                }
-              </Indicator>
-            </div>
-            <Carousel dots = {false} ref ={sliderRef}>
-              {
-                itemData?.picture_urls?.map(item =>{
-                  return(
-                    <div className='cover' key={item}> 
-                      <img src={item} alt=''/>
-                    </div>
-                  )
-                })
-              }
-            </Carousel>
-          </div>
-
-
-        </div>
+       {!itemData.picture_urls ? pictureElement : sliderElement}
         <div className='desc'>
           {itemData.verify_info.messages.join('.')}
           {/* 展示数组，并且用 - 拼接样式 */}
@@ -93,6 +95,7 @@ const RoomItem = memo((props) => {
                
                }
     </div> 
+    </div>
     </ItemWrapper>
   )
 })
