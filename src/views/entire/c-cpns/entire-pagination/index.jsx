@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { PaginationWrapper } from './style'
 import { Pagination } from '@mui/material'
 import { changeCurrentPageAction, fetchRoomListAction } from '@/store/modules/entire/createActions'
@@ -9,7 +9,7 @@ const EntirePagination = memo(() => {
     totalCount: state.entire.totalCount,
     currentPage: state.entire.currentPage,
     roomList:state.entire.roomList
-  }))
+  }),shallowEqual)
   const startCount = currentPage * 20 + 1
   const endCount = (currentPage +1) * 20
   const pageCount = Math.ceil(totalCount/20)
