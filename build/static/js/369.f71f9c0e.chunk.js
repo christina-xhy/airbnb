@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktina_airbnb=self.webpackChunktina_airbnb||[]).push([[369],{7369:function(n,e,i){i.r(e);var a=i(2791),t=i(184),r=(0,a.memo)((function(n){return(0,t.jsx)("div",{children:"Detail "})}));e.default=r}}]);
+//# sourceMappingURL=369.f71f9c0e.chunk.js.map
