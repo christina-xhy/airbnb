@@ -32,23 +32,17 @@ const Home = memo(()=>{
 
   return (
     <HomeWrapper>
-      <HomeBanner/>
+
+      <HomeBanner />
+      
       <div className='content'>
 
- 
-       
-
-
         { isEmptyO(discountInfo) && <HomeSectionV2 infoData = {discountInfo}/>}
-              {/* 设置初始化值 */}
-
+        {/* 设置初始化值 */}
+        
         {isEmptyO(recommendInfo) && <HomeSectionV2 infoData = {recommendInfo}/>}
 
-
-        
         {isEmptyO(longforInfo) && <HomeLongfor infoData = {longforInfo}/>}
-
-
 
         {
           // !!Object.keys(goodPriceInfo).length &&
@@ -67,7 +61,5 @@ const Home = memo(()=>{
     </HomeWrapper>
   )
 })
-
-
 
 export default Home

@@ -91,10 +91,9 @@ const RoomItem = memo((props) => {
                 {itemData.reviews_count}
                </span>
                {
-                itemData.bottom_info && <span className='extra'>-{itemData.bottom_info?.content}</span>
-               
+                itemData.bottom_info && <span className='extra'>-{itemData.bottom_info?.content}</span>             
                }
-    </div> 
+        </div> 
     </div>
     </ItemWrapper>
   )

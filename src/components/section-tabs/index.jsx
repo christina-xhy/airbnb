@@ -15,7 +15,8 @@ const SectionTabs= memo((props) => {
 
   function itemClickHandle(index,name){
     setCurrentIndex(index)
-    tabClick(index,name)//调用并且传递通信给父组件。注意调用这个函数，在监听onclick事件点击，同时传入item。item=name
+    tabClick(index, name)
+    //调用并且传递通信给父组件。注意调用这个函数，在监听onclick事件点击，同时传入item。item=name
   }
   return (
    <TabsWrapper>
